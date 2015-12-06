@@ -25,8 +25,6 @@ xterm*titleBar:         false
 
 UXTerm*background:      black
 UXTerm*foreground:      white
-!UXTerm*font:            9x15
-!UXTerm*saveLines:	    100000
 UXTerm*cursorColor:     red
 UXTerm*scrollBar:       false
 
@@ -53,69 +51,63 @@ Scrollbar.JumpCursor:   True
 !    Shift: select-extend() \n\
 !    Shift: select-end(CLIPBOARD)
 !xterm*VT100.Translations: #override\n\
-!	<Key>Page_Up:      	string(0x1b) string("[5~")\n\
-!	<Key>Page_Down:    	string(0x1b) string("[6~")\n\
-!	<KeyPress>Prior : 	scroll-back(1,page)\n\
-!	<KeyPress>Next : 	scroll-forw(1,page)
+!   <Key>Page_Up:       string(0x1b) string("[5~")\n\
+!   <Key>Page_Down:     string(0x1b) string("[6~")\n\
+!   <KeyPress>Prior :   scroll-back(1,page)\n\
+!   <KeyPress>Next :    scroll-forw(1,page)
 
-!*color0:	#000000
-!*color1:	#CD0000
-!*color2:	#03B029
-!*color3:	#CDCD00
-!*color4:	#7FC03F
-!*color5:	#CD00CD
-!*color6:	#71A4D7
-!*color7:	#FFFFFF
-!*color8:	#000000
-!*color9:	#FF0000
-!*color10:	#00FF00
-!*color11:	#FFFF00
-!*color12:	#00CCFF
-!*color13:	#FF00FF
-!*color14:	#00FFFF
-!*color15:	#FFFFFF
-!*foreground:	#FFFFFF
-!*background:	#000000
+! COLOR CODES FORMATS
+!*color0:   #000000
+!*color1:   #CD0000
+!*color2:   #03B029
+!*color3:   #CDCD00
+!*color4:   #7FC03F
+!*color5:   #CD00CD
+!*color6:   #71A4D7
+!*color7:   #FFFFFF
+!*color8:   #000000
+!*color9:   #FF0000
+!*color10:  #00FF00
+!*color11:  #FFFF00
+!*color12:  #00CCFF
+!*color13:  #FF00FF
+!*color14:  #00FFFF
+!*color15:  #FFFFFF
+!*foreground:   #FFFFFF
+!*background:   #000000
 
-!      color0       (black)            = Black
-!      color1       (red)              = Red3
-!      color2       (green)            = Green3
-!      color3       (yellow)           = Yellow3
-!      color4       (blue)             = Blue3
-!      color5       (magenta)          = Magenta3
-!      color6       (cyan)             = Cyan3
-!      color7       (white)            = AntiqueWhite
-!      color8       (bright black)     = Grey25
-!      color9       (bright red)       = Red
-!      color10      (bright green)     = Green
-!      color11      (bright yellow)    = Yellow
-!      color12      (bright blue)      = Blue
-!      color13      (bright magenta)   = Magenta
-!      color14      (bright cyan)      = Cyan
-!      color15      (bright white)     = White
-!      foreground                      = Black
-!      background                      = White
-!	#000000		00 nero
-!	#CD0000 	01 porpora
-!	#03B029 	02 verde
-!	#CDCD00 	03 kaki
-!	#7FC03F 	04 verdone
-!	#CD00CD 	05 magenta
-!	#71A4D7 	06 blu tuta
-!	#FFFFFF 	07 bianco
-!	#000000 	08 nero
-!	#FF0000		09 rosso brillante
-!	#00FF00 	10 verde brillante
-!	#FFFF00 	11 giallo brillante
-!	#00CCFF 	12 azzurro
-!	#FF00FF 	13 magenta brillante
-!	#00FFFF 	14 cyan brillante	commenti
-!	#FFFFFF 	15 bianco
-!	
-!tex
-!	9  graffe {babel} {equation} 
-!	10 comandi testo \textbf \bf
-!	11 comandi \usepackage o \label
-!	12 comandi  \begin  \section
-!	13 opzioni  a4paper
-!	14 commenti %
+!color0       (black)            = Black
+!color1       (red)              = Red3
+!color2       (green)            = Green3
+!color3       (yellow)           = Yellow3
+!color4       (blue)             = Blue3
+!color5       (magenta)          = Magenta3
+!color6       (cyan)             = Cyan3
+!color7       (white)            = AntiqueWhite
+!color8       (bright black)     = Grey25
+!color9       (bright red)       = Red
+!color10      (bright green)     = Green
+!color11      (bright yellow)    = Yellow
+!color12      (bright blue)      = Blue
+!color13      (bright magenta)   = Magenta
+!color14      (bright cyan)      = Cyan
+!color15      (bright white)     = White
+!foreground                      = Black
+!background                      = White
+
+!#000000     00 nero
+!#CD0000     01 porpora
+!#03B029     02 verde
+!#CDCD00     03 kaki
+!#7FC03F     04 verdone
+!#CD00CD     05 magenta
+!#71A4D7     06 blu tuta
+!#FFFFFF     07 bianco
+!#000000     08 nero
+!#FF0000     09 rosso brillante
+!#00FF00     10 verde brillante
+!#FFFF00     11 giallo brillante
+!#00CCFF     12 azzurro
+!#FF00FF     13 magenta brillante
+!#00FFFF     14 cyan brillante   commenti
+!#FFFFFF     15 bianco

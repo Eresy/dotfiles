@@ -7,9 +7,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#. /etc/udisks_functions/udisks_functions 
-
-alias qp='ps U eresia -f f'
+#	PROMPT COLORS ESCAPE CODES
 #########################################
 #Black      0;30 Dark Gray    1;30	#
 #Blue       0;34 Light Blue   1;34	#
@@ -21,6 +19,7 @@ alias qp='ps U eresia -f f'
 #Light Gray 0;37 White        1;37	#
 #########################################
 
+#Prompt formatting samples
 #PS1='[\u@\h \W]\$ '
 #export PS1="\u@\h:\W > "				 				#username@hostname >
 #export PS1="[\t] \u@\h:\W > "    							#ora + username@hostname >
@@ -57,7 +56,7 @@ export HISTTIMEFORMAT="%h/%d/%Y - %H:%M:%S "
 unset HISTFILESIZE
 export HISTSIZE="200000000"
 
-#sincronizza la history tra terminali aggiornandola ad ogni prompt
+#Stncs histories between terminals updating it at every prompt return
 #shopt -s histappend
 #PROMPT_COMMAND="history -n; history -a"
 
@@ -82,7 +81,9 @@ esac
 #	. ~/.bash_aliases
 #fi
 
-# some more ls aliases
+# some aliases
+alias qp='ps U $USER -f f'
+
 alias ls='ls --color=auto'
 alias ll='ls -lht'
 alias la='ls -A'
@@ -160,7 +161,7 @@ function ghc-pkg-reset() {
 }
 alias cabalupgrades="cabal list --installed  | egrep -iv '(synopsis|homepage|license)'"
 
-
+#gibo autocomplete, here for autocompleting despite gibo being in ~/.usr
 _gibo()
 {
     local cur opts
