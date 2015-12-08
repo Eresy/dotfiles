@@ -1,7 +1,7 @@
 ! ----------------------------------------------------------------------------
 ! file:     ~/.Xresources
 ! author:   Marco Bucchiarone
-! modified: 20151019
+! modified: 2015-12-08
 ! vim:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ----------------------------------------------------------------------------
 
@@ -43,6 +43,13 @@ Scrollbar.JumpCursor:   True
 *timeFormat:            C
 *inputLang:             C
 
+
+!Colorize man pages viewed with xterm
+*VT100.colorBDMode:     true
+*VT100.colorBD:         red
+*VT100.colorULMode:     true
+*VT100.colorUL:         cyan
+*VT100.veryBoldColors: 6
 !XTerm*VT100.Translations: #override \
 !    ShiftInsert: insert-selection(CLIPBOARD) \n\
 !    Insert: insert-selection(PRIMARY) \n\
