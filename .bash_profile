@@ -5,5 +5,7 @@ if [ -d "$HOME/.usr" ] ; then
     PATH="$HOME/.usr/bin:$PATH"
 fi
 
-#set vdpau driver
-export VDPAU_DRIVER=nvidia
+# set PATH so it includes cabal's bin if it exists
+if [ -d "$HOME/.cabal" ] ; then
+    PATH="$HOME/.cabal/bin:$PATH"
+fi

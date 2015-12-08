@@ -7,12 +7,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#XTERM Auto transparency
-#[ -n "$XTERM_VERSION" ] && transset-df 0.5 -a >/dev/null
-
-#. /etc/udisks_functions/udisks_functions 
-
-alias qp='ps U eresia -f f'
+#	PROMPT COLORS ESCAPE CODES
 #########################################
 #Black      0;30 Dark Gray    1;30	#
 #Blue       0;34 Light Blue   1;34	#
@@ -24,6 +19,7 @@ alias qp='ps U eresia -f f'
 #Light Gray 0;37 White        1;37	#
 #########################################
 
+#Prompt formatting samples
 #PS1='[\u@\h \W]\$ '
 #export PS1="\u@\h:\W > "				 				#username@hostname >
 #export PS1="[\t] \u@\h:\W > "    							#ora + username@hostname >
@@ -49,7 +45,7 @@ export HISTCONTROL="ignoreboth:erasedups"
 # 		  --> ignore same sucessive entries.
 
 #don't put this command in the history file
-export HISTIGNORE="&:l[als]:ll[lar]:cd:cd..:cd[ ]*:history:exit:[ ]*:ll[ ]*:lll[ ]*:df:date:xinit"
+export HISTIGNORE="&:l[als]:ll[lar]:cd:cd..:cd[ ]*:cdl*:history:exit:[ ]*:ll[ ]*:lll[ ]*:df:date:xinit"
 
 #record commands time
 export HISTTIMEFORMAT="%h/%d/%Y - %H:%M:%S "
@@ -60,7 +56,7 @@ export HISTTIMEFORMAT="%h/%d/%Y - %H:%M:%S "
 unset HISTFILESIZE
 export HISTSIZE="200000000"
 
-#sincronizza la history tra terminali aggiornandola ad ogni prompt
+#Stncs histories between terminals updating it at every prompt return
 #shopt -s histappend
 #PROMPT_COMMAND="history -n; history -a"
 
@@ -85,7 +81,9 @@ esac
 #	. ~/.bash_aliases
 #fi
 
-# some more ls aliases
+# some aliases
+alias qp='ps U $USER -f f'
+
 alias ls='ls --color=auto'
 alias ll='ls -lht'
 alias la='ls -A'
@@ -96,14 +94,19 @@ alias l='ls'
 
 alias cd..='cd ..'
 alias cdd='cd'
+alias cdh='cd ~/uni/LC1/Haskell/'
+alias cdlc='cd ~/uni/LC1'
+alias cdlp='cd ~/uni/LC1/LC1Project/'
 alias vim='vim -p'
 alias df='df -h'
 alias texclean='rm -f *.aux *.log *.dvi *.out'
 
+alias log='git log --graph --oneline --decorate --all'
 #alias skype='xhost +local: && sudo -u skype skype'
 
 alias lrsync='rsync -tvauh --no-checksum  --inplace --progress'
 
+alias vifm='vifm -c only'
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,9 +119,6 @@ eval `dircolors $HOME/.coloursrc`
 
 #usare vim come editor
 export EDITOR=vim
-
-
-
 #-------->
 #torify wget 
 #http_proxy=http://127.0.0.1:8118/
@@ -138,4 +138,36 @@ export EDITOR=vim
 #		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 #			man "$@"
 #}
-alias vifm='vifm -c only'
+
+
+# unregister broken GHC packages. Run this a few times to resolve dependency rot in installed packages.
+# ghc-pkg-clean -f cabal/dev/packages*.conf also works.                                                                                                                                                                                     
+function ghc-pkg-clean() {
+    for p in `ghc-pkg check $* 2>&1  | grep problems | awk '{print $6}' | sed -e 's/:$//'`
+    do
+        echo unregistering $p; ghc-pkg $* unregister $p
+    done
+}
+
+# remove all installed GHC/cabal packages, leaving ~/.cabal binaries and docs in place.                                                                                          # When all else fails, use this to get out of dependency hell and start over.                                                                                                    
+function ghc-pkg-reset() {
+    read -p 'erasing all your user ghc and cabal packages - are you sure (y/n) ? ' ans
+    test x$ans == xy && ( \
+        echo 'erasing directories under ~/.ghc'; rm -rf `find ~/.ghc -maxdepth 1 -type d`; \
+        echo 'erasing ~/.cabal/lib'; rm -rf ~/.cabal/lib; \
+        # echo 'erasing ~/.cabal/packages'; rm -rf ~/.cabal/packages; \                                                                                                                                                                     
+        # echo 'erasing ~/.cabal/share'; rm -rf ~/.cabal/share; \                                                                                                                                                                           
+        )
+}
+alias cabalupgrades="cabal list --installed  | egrep -iv '(synopsis|homepage|license)'"
+
+#gibo autocomplete, here for autocompleting despite gibo being in ~/.usr
+_gibo()
+{
+    local cur opts
+    opts=$( find $HOME/.gitignore-boilerplates -name "*.gitignore" -exec basename \{\} .gitignore \; )
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+complete -F _gibo gibo

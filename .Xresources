@@ -1,0 +1,113 @@
+! ----------------------------------------------------------------------------
+! file:     ~/.Xresources
+! author:   Marco Bucchiarone
+! modified: 20151019
+! vim:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! ----------------------------------------------------------------------------
+
+
+#ifdef COLOR
+*customization: -color
+#endif
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! xterm (and friends)
+
+XTerm*background:       black
+XTerm*foreground:       white
+XTerm*cursorColor:      red
+!XTerm*Font:             9x15
+!XTerm*saveLines:        100000
+XTerm*scrollBar:        false
+
+xterm*fullCursor:       true
+xterm*reverseWrap:      true
+xterm*titleBar:         false
+
+UXTerm*background:      black
+UXTerm*foreground:      white
+UXTerm*cursorColor:     red
+UXTerm*scrollBar:       false
+
+XTerm*renderFont: true
+XTerm*faceName: DejaVu Sans Mono::size=11
+!XTerm*faceSize: 10
+*renderFont: true
+*faceName: DejaVu Sans Mono::size=11
+*visualBell:            false
+*scrollTtyKeypress:     True
+*scrollKey:             True
+Scrollbar.JumpCursor:   True
+*numeric:               C
+*displayLang:           C
+*basicLocale:           C
+*timeFormat:            C
+*inputLang:             C
+
+!XTerm*VT100.Translations: #override \
+!    ShiftInsert: insert-selection(CLIPBOARD) \n\
+!    Insert: insert-selection(PRIMARY) \n\
+!    Shift: insert-selection(CLIPBOARD) \n\
+!    Shift: select-start() \n\
+!    Shift: select-extend() \n\
+!    Shift: select-end(CLIPBOARD)
+!xterm*VT100.Translations: #override\n\
+!   <Key>Page_Up:       string(0x1b) string("[5~")\n\
+!   <Key>Page_Down:     string(0x1b) string("[6~")\n\
+!   <KeyPress>Prior :   scroll-back(1,page)\n\
+!   <KeyPress>Next :    scroll-forw(1,page)
+
+! COLOR CODES FORMATS
+!*color0:   #000000
+!*color1:   #CD0000
+!*color2:   #03B029
+!*color3:   #CDCD00
+!*color4:   #7FC03F
+!*color5:   #CD00CD
+!*color6:   #71A4D7
+!*color7:   #FFFFFF
+!*color8:   #000000
+!*color9:   #FF0000
+!*color10:  #00FF00
+!*color11:  #FFFF00
+!*color12:  #00CCFF
+!*color13:  #FF00FF
+!*color14:  #00FFFF
+!*color15:  #FFFFFF
+!*foreground:   #FFFFFF
+!*background:   #000000
+
+!color0       (black)            = Black
+!color1       (red)              = Red3
+!color2       (green)            = Green3
+!color3       (yellow)           = Yellow3
+!color4       (blue)             = Blue3
+!color5       (magenta)          = Magenta3
+!color6       (cyan)             = Cyan3
+!color7       (white)            = AntiqueWhite
+!color8       (bright black)     = Grey25
+!color9       (bright red)       = Red
+!color10      (bright green)     = Green
+!color11      (bright yellow)    = Yellow
+!color12      (bright blue)      = Blue
+!color13      (bright magenta)   = Magenta
+!color14      (bright cyan)      = Cyan
+!color15      (bright white)     = White
+!foreground                      = Black
+!background                      = White
+
+!#000000     00 nero
+!#CD0000     01 porpora
+!#03B029     02 verde
+!#CDCD00     03 kaki
+!#7FC03F     04 verdone
+!#CD00CD     05 magenta
+!#71A4D7     06 blu tuta
+!#FFFFFF     07 bianco
+!#000000     08 nero
+!#FF0000     09 rosso brillante
+!#00FF00     10 verde brillante
+!#FFFF00     11 giallo brillante
+!#00CCFF     12 azzurro
+!#FF00FF     13 magenta brillante
+!#00FFFF     14 cyan brillante   commenti
+!#FFFFFF     15 bianco
