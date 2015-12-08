@@ -29,7 +29,7 @@ UXTerm*cursorColor:     red
 UXTerm*scrollBar:       false
 
 XTerm*renderFont: true
-XTerm*faceName: DejaVu Sans Mono::size=11
+XTerm*faceName: DejaVu Sans Mono::size=13
 !XTerm*faceSize: 10
 *renderFont: true
 *faceName: DejaVu Sans Mono::size=11

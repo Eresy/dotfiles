@@ -7,7 +7,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#	PROMPT COLORS ESCAPE CODES
+#XTERM Auto transparency
+#[ -n "$XTERM_VERSION" ] && transset-df 0.5 -a >/dev/null
 #########################################
 #Black      0;30 Dark Gray    1;30	#
 #Blue       0;34 Light Blue   1;34	#
@@ -56,7 +57,7 @@ export HISTTIMEFORMAT="%h/%d/%Y - %H:%M:%S "
 unset HISTFILESIZE
 export HISTSIZE="200000000"
 
-#Stncs histories between terminals updating it at every prompt return
+#Syncs histories between terminals updating it at every prompt return
 #shopt -s histappend
 #PROMPT_COMMAND="history -n; history -a"
 
