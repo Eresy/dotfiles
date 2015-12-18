@@ -11,6 +11,8 @@
 #configuration parameters for X client applications
 #[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# set a cursor for xmonad desktop
+xsetroot -cursor_name left_ptr
 
 #imposto sfondo
 #	display -window root "$HOME/.my_background/tux.jpg"
@@ -50,6 +52,7 @@ xbindkeys
 setxkbmap it
 
 numlockx &
+
 
 #dwmstatus &
 #exec dwm > .xerrors 2>&1
