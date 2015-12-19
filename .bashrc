@@ -97,9 +97,12 @@ alias cdd='cd'
 alias cdh='cd ~/uni/LC1/Haskell/'
 alias cdlc='cd ~/uni/LC1'
 alias cdlp='cd ~/uni/LC1/LC1Project/'
+alias cdp='cd ~/uni/LC1/LC1Project//ProgettoLC1\ parte2\ Gruppo\ 14'
+
 alias vim='vim -p'
 alias df='df -h'
 alias texclean='rm -f *.aux *.log *.dvi *.out'
+alias zathura='zathura --fork'
 
 alias log='git log --graph --oneline --decorate --all'
 #alias skype='xhost +local: && sudo -u skype skype'
