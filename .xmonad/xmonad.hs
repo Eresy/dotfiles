@@ -102,6 +102,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- map Mod -w to workspace 9
     , ((modm              , xK_w     ), windows $ W.greedyView "web")
     , ((modm .|. shiftMask, xK_w     ), windows $ W.shift "web")
+--    , ((modm              , xK_plus  ), sendMessage $ SetMasterFraction (2/3))
     ]
     
     ++
@@ -156,6 +157,7 @@ myLayout = avoidStruts $ smartBorders (grid ||| tiled ||| Mirror tiled ||| Full)
   where
      -- grid    = SplitGrid B 2 3 (2/3) (16/10) (5/100)
      grid = Grid (16/10)
+     -- sgrid    = SplitGrid XMonad.Layout.GridVariants.L 1 1 (1/2) (16/10) (1/16) 
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
 
