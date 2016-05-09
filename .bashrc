@@ -98,7 +98,7 @@ alias cdd='cd'
 alias cdh='cd ~/uni/LC1/Haskell/'
 alias cdlc='cd ~/uni/LC1'
 alias cdlp='cd ~/uni/LC1/LC1Project/'
-alias cdp='cd ~/uni/LC1/LC1Project//ProgettoLC1\ parte2\ Gruppo\ 14'
+alias cdp='cd ~/uni/LC1/LC1Project//ProgettoLC1\ parte3\ Gruppo\ 14'
 
 alias vim='vim -p'
 alias df='df -h'
@@ -106,11 +106,12 @@ alias texclean='rm -f *.aux *.log *.dvi *.out'
 alias zathura='zathura --fork'
 
 alias log='git log --graph --oneline --decorate --all'
-#alias skype='xhost +local: && sudo -u skype skype'
+
+alias ksp='xhost +local: && sudo -u kerbal steam steam://rungameid/220200'
 
 alias lrsync='rsync -tvauh --no-checksum  --inplace --progress'
 
-alias vifm='vifm -c only'
+#alias vifm='vifm -c only'
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

@@ -28,11 +28,11 @@ UXTerm*foreground:      white
 UXTerm*cursorColor:     red
 UXTerm*scrollBar:       false
 
-XTerm*renderFont: true
-XTerm*faceName: DejaVu Sans Mono::size=13
+!XTerm*renderFont: true
+!XTerm*faceName: DejaVu Sans Mono::size=13
 !XTerm*faceSize: 10
 *renderFont: true
-*faceName: DejaVu Sans Mono::size=11
+*faceName: DejaVu Sans Mono::size=13
 *visualBell:            false
 *scrollTtyKeypress:     True
 *scrollKey:             True

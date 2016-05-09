@@ -12,14 +12,14 @@ Config {
      , sepChar =  "%"   -- delineator between plugin names and straight text
      , alignSep = "}{"  -- separator between left-right alignment
 --   , template = " %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% || %kbd% "
-   , template = " %StdinReader% }{ %coretemp% | %memory% | %dynnetwork% || %date% "
+     , template = " %StdinReader% }{  %memory% | %dynnetwork% || %date% "
 --   , template = " %StdinReader% }{%multicpu% | %coretemp% | %memory% | %dynnetwork% || %date% "
 --     , template = " %StdinReader% }{ %date%"
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
    , hideOnStart =      False   -- start with window unmapped (hidden)
    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
-   , persistent =       True    -- enable/disable hiding (True = disabled)
+   , persistent =       False    -- enable/disable hiding (True = disabled)
 
    -- plugins
    --   Numbers can be automatically colored according to their value. xmobar
@@ -43,7 +43,7 @@ Config {
 --                             ] 36000
 --
         -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "<dev>: <rx>kB/s|<tx>kB/s"
+        , Run DynNetwork     [ "--template" , "<dev>: <rx> kB/s| <tx> kB/s"
                              , "--Low"      , "1000"       -- units: kB/s
                              , "--High"     , "5000"       -- units: kB/s
                              , "--low"      , "green"
@@ -52,7 +52,7 @@ Config {
                              ] 10
 
   -- cpu activity monitor
---        , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+--        , Run MultiCpu       [ "--template" , "Cpu: <autototal> %"
 --                             , "--Low"      , "50"         -- units: %
 --                             , "--High"     , "85"         -- units: %
 --                             , "--low"      , "green"
@@ -61,13 +61,13 @@ Config {
 --                             ] 10
 
   -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
-                             , "--Low"      , "70"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
-                             , "--low"      , "green"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
-                             ] 50
+--        , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+--                             , "--Low"      , "70"        -- units: °C
+--                             , "--High"     , "80"        -- units: °C
+--                             , "--low"      , "green"
+--                             , "--normal"   , "orange"
+--                             , "--high"     , "red"
+--                             ] 50
                           
   -- memory usage monitor
         , Run Memory         [ "--template" ,"Mem: <usedratio>%"

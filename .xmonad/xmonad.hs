@@ -22,7 +22,12 @@ import qualified Data.Map        as M
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe,hPutStrLn)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig(additionalKeysP)
+
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.PerWorkspace
+
+import XMonad.Hooks.ManageHelpers
 
 import XMonad.Layout.GridVariants
 import XMonad.Layout.NoBorders
@@ -42,7 +47,7 @@ myModMask       = mod4Mask
 -- The number of workspaces is determined by the length of this list.
 -- myWorkspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9","web"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9","s","g","web"]
 --
 myNormalBorderColor  = "#000000"
 myFocusedBorderColor = "#ff0000"
@@ -103,6 +108,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_w     ), windows $ W.greedyView "web")
     , ((modm .|. shiftMask, xK_w     ), windows $ W.shift "web")
 --    , ((modm              , xK_plus  ), sendMessage $ SetMasterFraction (2/3))
+    , ((modm              , xK_g     ), windows $ W.greedyView "g")
+    , ((modm .|. shiftMask, xK_g     ), windows $ W.shift "g")
+    , ((modm              , xK_s     ), windows $ W.greedyView "s")
+    , ((modm .|. shiftMask, xK_s     ), windows $ W.shift "s")
     ]
     
     ++
@@ -153,7 +162,9 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts $ smartBorders (grid ||| tiled ||| Mirror tiled ||| Full)
+myLayout = avoidStruts $ smartBorders (
+           onWorkspaces ["g"] Full $
+           tiled ||| Mirror tiled ||| grid ||| Full)
   where
      -- grid    = SplitGrid B 2 3 (2/3) (16/10) (5/100)
      grid = Grid (16/10)
@@ -190,8 +201,11 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Gimp"           --> doFloat
     , className =? "Firefox"        --> doShift "web"
     , className =? "Places"         --> doShift "web"
+    , className =? "Thunderbird"    --> doShift "9"
+    , className =? "Steam"          --> doShift "g"
+    , className =? "Kerbal Space Program" --> doShift "g"
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "stalonetray"    --> doIgnore 
+    , isFullscreen --> doFullFloat
     ]
     
 
@@ -203,7 +217,7 @@ myManageHook = manageDocks <+> composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = docksEventHook <+> fullscreenEventHook
 ------------------------------------------------------------------------
 -- Status bars and logging
 
@@ -218,7 +232,7 @@ myBar = "xmobar"
 myPP = xmobarPP { ppCurrent = xmobarColor "#ff00ff" "" . wrap "<" ">" 
                 , ppTitle = xmobarColor "green" "" . shorten 110
                 , ppHidden = xmobarColor "#eeeeee"  ""
-                , ppHiddenNoWindows = xmobarColor "#222222" ""
+                --, ppHiddenNoWindows = xmobarColor "#222222" ""
                 }
 -- Key binding to toggle the gap for the bar.
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
