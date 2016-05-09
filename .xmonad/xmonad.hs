@@ -27,7 +27,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.GridVariants
 import XMonad.Layout.NoBorders
 
-myTerminal      = "xterm"
+myTerminal      = "uxterm"
 myFocusFollowsMouse :: Bool -- Whether focus follows the mouse pointer moves.
 myFocusFollowsMouse = False
 myClickJustFocuses :: Bool -- Click on a window to focus also passes the click to the window
@@ -42,7 +42,7 @@ myModMask       = mod4Mask
 -- The number of workspaces is determined by the length of this list.
 -- myWorkspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9","web"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9","S","web"]
 --
 myNormalBorderColor  = "#000000"
 myFocusedBorderColor = "#ff0000"
@@ -102,6 +102,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- map Mod -w to workspace 9
     , ((modm              , xK_w     ), windows $ W.greedyView "web")
     , ((modm .|. shiftMask, xK_w     ), windows $ W.shift "web")
+    , ((modm              , xK_s     ), windows $ W.greedyView "S")
+    , ((modm .|. shiftMask, xK_s     ), windows $ W.shift "S")
 --    , ((modm              , xK_plus  ), sendMessage $ SetMasterFraction (2/3))
     ]
     

@@ -6,11 +6,13 @@
 ! ----------------------------------------------------------------------------
 
 
-#ifdef COLOR
-*customization: -color
-#endif
+!#ifdef COLOR
+!*customization: -color
+!#endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! xterm (and friends)
+Xft.antialias:true
+Xft.hinting:true
 
 XTerm*background:       black
 XTerm*foreground:       white
@@ -20,28 +22,29 @@ XTerm*cursorColor:      red
 XTerm*scrollBar:        false
 
 xterm*fullCursor:       true
-xterm*reverseWrap:      true
+!xterm*reverseWrap:      true
 xterm*titleBar:         false
 
-UXTerm*background:      black
-UXTerm*foreground:      white
-UXTerm*cursorColor:     red
-UXTerm*scrollBar:       false
-
-XTerm*renderFont: true
-XTerm*faceName: DejaVu Sans Mono::size=13
+*background:      black
+*foreground:      white
+*cursorColor:     red
+*scrollBar:       false
+*fullCursor:    true
+URxvt*font:      xft:DejaVu Sans Mono:pixelsize=13
+!XTerm*renderFont: true
+!XTerm*faceName: DejaVu Sans Mono::size=13
 !XTerm*faceSize: 10
 *renderFont: true
-*faceName: DejaVu Sans Mono::size=11
-*visualBell:            false
-*scrollTtyKeypress:     True
-*scrollKey:             True
-Scrollbar.JumpCursor:   True
-*numeric:               C
-*displayLang:           C
-*basicLocale:           C
-*timeFormat:            C
-*inputLang:             C
+*faceName: DejaVu Sans Mono::size=10
+!*visualBell:            false
+!*scrollTtyKeypress:     True
+!*scrollKey:             True
+!Scrollbar.JumpCursor:   True
+!*numeric:               C
+!*displayLang:           C
+!*basicLocale:           C
+!*timeFormat:            C
+!*inputLang:             C
 
 
 !Colorize man pages viewed with xterm

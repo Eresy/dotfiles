@@ -98,7 +98,7 @@ alias cdd='cd'
 alias cdh='cd ~/uni/LC1/Haskell/'
 alias cdlc='cd ~/uni/LC1'
 alias cdlp='cd ~/uni/LC1/LC1Project/'
-alias cdp='cd ~/uni/LC1/LC1Project//ProgettoLC1\ parte2\ Gruppo\ 14'
+alias cdp='cd ~/uni/LC1/LC1Project//ProgettoLC1\ parte3\ Gruppo\ 14'
 
 alias vim='vim -p'
 alias df='df -h'

@@ -45,7 +45,7 @@ sh ~/.fehbg &
 ##/usr/bin/start-pulseaudio-x11 &
 
 # bind key demone
-xbindkeys
+#xbindkeys
 
 #udiskie &
 
