@@ -22,7 +22,12 @@ import qualified Data.Map        as M
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe,hPutStrLn)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig(additionalKeysP)
+
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.PerWorkspace
+
+import XMonad.Hooks.ManageHelpers
 
 import XMonad.Layout.GridVariants
 import XMonad.Layout.NoBorders
@@ -102,9 +107,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- map Mod -w to workspace 9
     , ((modm              , xK_w     ), windows $ W.greedyView "web")
     , ((modm .|. shiftMask, xK_w     ), windows $ W.shift "web")
-    , ((modm              , xK_s     ), windows $ W.greedyView "S")
-    , ((modm .|. shiftMask, xK_s     ), windows $ W.shift "S")
 --    , ((modm              , xK_plus  ), sendMessage $ SetMasterFraction (2/3))
+    , ((modm              , xK_s     ), windows $ W.greedyView "s")
+    , ((modm .|. shiftMask, xK_s     ), windows $ W.shift "s")
     ]
     
     ++
@@ -193,7 +198,7 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Firefox"        --> doShift "web"
     , className =? "Places"         --> doShift "web"
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "stalonetray"    --> doIgnore 
+    , isFullscreen --> doFullFloat
     ]
     
 
@@ -205,7 +210,7 @@ myManageHook = manageDocks <+> composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = docksEventHook <+> fullscreenEventHook
 ------------------------------------------------------------------------
 -- Status bars and logging
 

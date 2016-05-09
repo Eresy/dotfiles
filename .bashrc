@@ -106,11 +106,12 @@ alias texclean='rm -f *.aux *.log *.dvi *.out'
 alias zathura='zathura --fork'
 
 alias log='git log --graph --oneline --decorate --all'
-#alias skype='xhost +local: && sudo -u skype skype'
+
+alias ksp='xhost +local: && sudo -u kerbal steam steam://rungameid/220200'
 
 alias lrsync='rsync -tvauh --no-checksum  --inplace --progress'
 
-alias vifm='vifm -c only'
+#alias vifm='vifm -c only'
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

@@ -6,9 +6,9 @@
 ! ----------------------------------------------------------------------------
 
 
-!#ifdef COLOR
-!*customization: -color
-!#endif
+#ifdef COLOR
+*customization: -color
+#endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! xterm (and friends)
 Xft.antialias:true
@@ -36,15 +36,15 @@ URxvt*font:      xft:DejaVu Sans Mono:pixelsize=13
 !XTerm*faceSize: 10
 *renderFont: true
 *faceName: DejaVu Sans Mono::size=10
-!*visualBell:            false
-!*scrollTtyKeypress:     True
-!*scrollKey:             True
-!Scrollbar.JumpCursor:   True
-!*numeric:               C
-!*displayLang:           C
-!*basicLocale:           C
-!*timeFormat:            C
-!*inputLang:             C
+*visualBell:            false
+*scrollTtyKeypress:     True
+*scrollKey:             True
+Scrollbar.JumpCursor:   True
+*numeric:               C
+*displayLang:           C
+*basicLocale:           C
+*timeFormat:            C
+*inputLang:             C
 
 
 !Colorize man pages viewed with xterm
